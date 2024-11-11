@@ -50,6 +50,9 @@ hash_t *hash_crear(size_t capacidad_inicial)
 
 size_t hash_cantidad(hash_t *hash)
 {
+	if (hash == NULL)
+		return 0;
+
 	return hash->cantidad;
 }
 
@@ -227,8 +230,8 @@ size_t hash_iterar(hash_t *hash, bool (*f)(char *, void *, void *), void *ctx)
 		nodo_t *nodo = hash->tabla[i];
 
 		while (nodo != NULL) {
-			if (!f(nodo->clave, nodo->valor, ctx))
-				return cantidad;
+			if (f != NULL && !f(nodo->clave, nodo->valor, ctx))
+				return cantidad + 1;
 
 			cantidad++;
 			nodo = nodo->siguiente;
