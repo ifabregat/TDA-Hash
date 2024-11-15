@@ -37,7 +37,7 @@ valgrind ./tp_hash ejemplos/pokedex.csv
 * **hash_t**: contiene un `nodo_t **` para el arreglo de punteros a nodos, un `size_t` para la cantidad de elementos del arreglo, un `size_t` para la capacidad del arreglo y `inf (*hash_func)(char *, size_t)` para la funcion de hash.
 
 <div align="center">
-<img height="200px" width="700px" src="img/estructuras.JPG">
+<img height="200px" width="700px" src="https://i.ibb.co/1q4Yd9r/estructuras.jpg">
 </div>
 
 ## Funciones
@@ -82,7 +82,7 @@ Un diccionario es una estructura de datos que almacena pares de `clave-valor` pe
 Este tipo de hash tiene la peculiaridad que los valores asociados a ese par `clave-valor` es ingresado el `valor` directamente en la posicion de la tabla. Viendo la foto, siendo `Ivan`la clave se le aplica la funcion de hash devolviendo `3` que es el indice de la tabla en donde se insertara. En este tipo de hash si ocurren colisiones (que una *una / varias* claves al aplicarle la funcion de hash devuelvan el mismo numero) se suele solucionar con alguno de estos metodos `Probing lineal o probing cuadratico o hash doble`.
 
 <div align="center">
-<img height="200px" width="700px" src="img/hashCerrado.JPG">
+<img height="200px" width="700px" src="https://i.ibb.co/6HqdjNm/hash-Cerrado.jpg">
 </div>
 
 ### Hash abierto (direccionamiento cerrado)
@@ -90,7 +90,7 @@ Este tipo de hash tiene la peculiaridad que los valores asociados a ese par `cla
 Este tipo de hash a diferencia del anterior la tabla contendra punteros a un nodos que contendra el par `clave-valor`. Viendo la foto primero se ingresa el par de clave `abc` al aplicarla la funcion de hash devuelve `0` siendo el indice del arreglo en donde ira la informacion. Despues se inserto el par de clave `fgh` que al aplicarle la funcion de hash vuelve a devolver `0` lo cual vuelve al indice `0`. Por como lo implemente el nuevo elemento siempre ira en la primer posicion de los nodos enlazados (ya que en su interior cada nodo tiene *clave*, *valor* y un **puntero al siguiente nodo**). En este tipo de hash la manera de resolver las colisiones es a traves del metodo `encademiento`.
 
 <div align="center">
-<img height="200px" width="700px" src="img/miFuncHash.JPG">
+<img height="200px" width="700px" src="https://i.ibb.co/1zQb3FB/mi-Func-Hash.jpg">
 </div>
 
 
@@ -101,19 +101,19 @@ Algunas formas de implementar esta estructura son:
 1. **Lista simplemente enlazada**: esta implementacion utilizara una estructura como la de **Lista Simplemente Enlazada** donde cada nodo tendra los campos que se ven en la imagen. El orden que tendra esta lista sera a medida que sean ingresados. El primer par `clave-valor` que sea ingresado sera el inicio de la lista y se ira agrandando a media que sean ingresados mas pares.
 
 <div align="center">
-<img height="200px" width="500px" src="img/lista.JPG">
+<img height="200px" width="500px" src="https://i.ibb.co/TrZPNgs/lista.jpg">
 </div>
 
 2. **Arbol Binario de Busqueda**: esta implementacion utilizara una estructura como la del **Arbol Binario de Busqueda** donde cada nodo tendra los campos que se ven en la imagen. El orden que tendra este arbol sera por las claves. El primer par `clave-valor` que se ingrese sera la `raiz` y los siguientes elementos ingresados que tengan una clave *menor* iran a la izquierda y los que tengan *mayor* iran a la derecha.
 
 <div align="center">
-<img height="200px" width="500px" src="img/abb.jpg">
+<img height="200px" width="500px" src="https://i.ibb.co/t8FJ3nH/abb.jpg">
 </div>
 
 3. **Tabla de Hash**: esta implementacion utilizara una funcion de hash, permitiendo mapear cada `clave` ingresada a un indice de un arreglo. La funcion de hash convierte cada clave en un indice unico, pero puede pasar que no, si esto ocurre se llama `colision`. Lo mejor seria que la distribucion de indices sea variada y no se repita (para que no haya colisiones). A continuacion en la foto se ve como la clave `Ivan` se le aplica la `funcion hash` y da `3`. El par `Ivan - Alumno` el valor `Alumno` ira al indice `3` de la tabla. Y asi con las siguientes clves.
 
 <div align="center">
-<img height="200px" width="700px" src="img/tablaHash.JPG">
+<img height="200px" width="700px" src="https://i.ibb.co/wdc2BcC/tabla-Hash.jpg">
 </div>
 
 <br>
@@ -138,13 +138,13 @@ Ahora para mi funcion veamos los siguientes casos con estas claves:
 Distintas claves nos da el mismo `codigo hash` a este problema se lo llama `colision`. Esto seria un problema si ingresamos muchas claves y justo todas al ser **hasheadas** devuelvan 0. Y esto seria un problema porque estariamos perdiendo la optimizacion que conseguimos al hacer un diccionario de este tipo. Porque tendriamos que acceder al arreglo a la posicion que nos de la funcion de hash, lo cual no es problema. Y despues recorrer los nodos enlazados y ahi perdimos toda la optimizacion. Para volver a ganar cierta optimizacion calcule el **factor de carga**. Para que cada vez que se ingrese pares y se llegue a una relacion entre `cantidad` y `capacidad` haga un redimension en la tabla.
 
 <div align="center">
-<img height="200px" width="700px" src="img/miFuncHash.JPG">
+<img height="200px" width="700px" src="https://i.ibb.co/1zQb3FB/mi-Func-Hash.jpg">
 </div>
 
 ## Tabla de Hash
 
 <div style="display: flex; align-items: center;">
-    <img height="200px" width="400px" src="img/tabla.jpg">
+    <img height="200px" width="400px" src="https://i.ibb.co/w7HCNDs/tabla.jpg">
     <span style="margin-left: 10px">Esta es una tablita de hash. En la cual se ven tres columnas la de datos, la de claves y la de hash. En la foto se ve como con la clave "abc" y "fgh" dan el mismo hash en ese caso hay una colision.</span>
 </div>
 
@@ -153,7 +153,7 @@ Distintas claves nos da el mismo `codigo hash` a este problema se lo llama `coli
 * **Encadenamiento**: este es el metodo que use para resolver las colisiones. A medida que se ingresan pares y al aplicarle la funcion de hash devuelven el mismo indice, estos pares son agregados a la lista de nodos enlazados.
 
 <div align="center">
-<img height="200px" width="700px" src="img/miFuncHash.JPG">
+<img height="200px" width="700px" src="https://i.ibb.co/1zQb3FB/mi-Func-Hash.jpg">
 </div>
 
 * **Probing**: este metodo tiene dos variantes `lineal` y `cuadratico` (supongo que debe haber cubico y mas nombres de funciones). Para explicar estos ejemplos deje sin expresar el par `fgh - 3` ya que ocasiona colision con el par `abc - 1`
@@ -164,7 +164,7 @@ Distintas claves nos da el mismo `codigo hash` a este problema se lo llama `coli
         - Cuadratica: este metodo se calculara la posicion donde se insertara en base a los intentos que hubieron elevados al cuadrado. En este caso se tuvo que insertar en la posicion 0, pero esta ocupada. Ya realice un intento entonces hago 1² = 1. Pruebo en la posicion 1 ahora, esta ocupado. Sumo uno a mis intentos y lo elevo al cuadrado 2² = 4. Prueba en la posicion 4, no hay nada, inserto ahi.
 
 <div align="center">
-<img height="200px" width="700px" src="img/tablaHashColisiones.jpg">
+<img height="200px" width="700px" src="https://i.ibb.co/X2vvp8h/tabla-Hash-Colisiones.jpg">
 </div>
 
 * **Hash doble**: este metodo consta de volver a hacer otra funcion de hash a la clave para obtener otro indice.
@@ -184,5 +184,5 @@ El ultimo tema es acerca del tamaño de la tabla. Mientras mas chica es la tabla
 *Algo a comentar*: al momento de hacer el diagrama de memoria me di cuenta que el dibujo de las estructuras que hice al principio no estaba bien y por tratar de corregirlo lo hice en Pinta (una variable de paint), pero creo que se entiende la idea.
 
 <div align="center">
-<img height="400px" width="700px" src="img/memoria.JPG">
+<img height="400px" width="700px" src="https://i.ibb.co/gWb3ZWk/memoria.jpg">
 </div>
